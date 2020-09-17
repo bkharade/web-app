@@ -44,6 +44,30 @@
 	<build>
 	<finalName>WebTest</finalName>
 		<plugins>
+<plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>copy-resources</id>
+            <!-- here the phase you need -->
+            <phase>compile</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${basedir}/src/main/resources/static</outputDirectory>
+              <resources>          
+                <resource>
+                 <!--   <directory>/Users/kharade/Documents/balaji/Code/angular/web-ui/dist/web-ui</directory>-->
+                 <directory>/tmp/web-ui</directory>
+                  <filtering>false</filtering>
+                </resource>
+              </resources>              
+            </configuration>            
+          </execution>
+        </executions>
+      </plugin>
+        
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
